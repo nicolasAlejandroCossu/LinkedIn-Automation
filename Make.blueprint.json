@@ -1,0 +1,3358 @@
+{
+    "name": "LinkedIn Automation!",
+    "flow": [
+        {
+            "id": 1,
+            "module": "rss:TriggerNewArticle",
+            "version": 4,
+            "parameters": {
+                "url": "https://www.technologyreview.com/feed/",
+                "gzip": false,
+                "include": [],
+                "password": "",
+                "username": "",
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -288,
+                    "y": -440
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            },
+                            {
+                                "name": "post-id",
+                                "type": "text",
+                                "label": "post-id"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 35,
+            "module": "rss:ActionReadArticles",
+            "version": 4,
+            "parameters": {
+                "include": []
+            },
+            "mapper": {
+                "url": "https://www.technologyreview.com/feed/",
+                "gzip": false,
+                "password": "",
+                "username": "",
+                "maxResults": "1",
+                "filterDateTo": "",
+                "filterDateFrom": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": -295,
+                    "y": -147
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "filterDateFrom",
+                        "type": "date",
+                        "label": "Date from"
+                    },
+                    {
+                        "name": "filterDateTo",
+                        "type": "date",
+                        "label": "Date to "
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            },
+                            {
+                                "name": "post-id",
+                                "type": "text",
+                                "label": "post-id"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 36,
+            "module": "rss:ActionReadArticles",
+            "version": 4,
+            "parameters": {
+                "include": []
+            },
+            "mapper": {
+                "url": "https://techcrunch.com/feed/",
+                "gzip": false,
+                "password": "",
+                "username": "",
+                "maxResults": "1",
+                "filterDateTo": "",
+                "filterDateFrom": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": -293,
+                    "y": 145
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "filterDateFrom",
+                        "type": "date",
+                        "label": "Date from"
+                    },
+                    {
+                        "name": "filterDateTo",
+                        "type": "date",
+                        "label": "Date to "
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 37,
+            "module": "rss:ActionReadArticles",
+            "version": 4,
+            "parameters": {
+                "include": []
+            },
+            "mapper": {
+                "url": "https://towardsdatascience.com/feed",
+                "gzip": false,
+                "password": "",
+                "username": "",
+                "maxResults": "1",
+                "filterDateTo": "",
+                "filterDateFrom": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": 68,
+                    "y": -434
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "filterDateFrom",
+                        "type": "date",
+                        "label": "Date from"
+                    },
+                    {
+                        "name": "filterDateTo",
+                        "type": "date",
+                        "label": "Date to "
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 40,
+            "module": "rss:ActionReadArticles",
+            "version": 4,
+            "parameters": {
+                "include": []
+            },
+            "mapper": {
+                "url": "https://openai.com/blog/rss.xml",
+                "gzip": false,
+                "password": "",
+                "username": "",
+                "maxResults": "1",
+                "filterDateTo": "",
+                "filterDateFrom": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": 67,
+                    "y": -153
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "filterDateFrom",
+                        "type": "date",
+                        "label": "Date from"
+                    },
+                    {
+                        "name": "filterDateTo",
+                        "type": "date",
+                        "label": "Date to "
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 41,
+            "module": "rss:ActionReadArticles",
+            "version": 4,
+            "parameters": {
+                "include": []
+            },
+            "mapper": {
+                "url": "https://www.theseattledataguy.com/feed",
+                "gzip": false,
+                "password": "",
+                "username": "",
+                "maxResults": "1",
+                "filterDateTo": "",
+                "filterDateFrom": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": 69,
+                    "y": 148
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "filterDateFrom",
+                        "type": "date",
+                        "label": "Date from"
+                    },
+                    {
+                        "name": "filterDateTo",
+                        "type": "date",
+                        "label": "Date to "
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            },
+                            {
+                                "name": "post-id",
+                                "type": "text",
+                                "label": "post-id"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 3,
+            "module": "gemini-ai:createACompletionGeminiPro",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 4167830
+            },
+            "mapper": {
+                "model": "gemini-2.5-pro",
+                "contents": [
+                    {
+                        "role": "user",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "text": "1 - {{41.rssFields}}\n2 - {{40.rssFields}}\n3 - {{37.rssFields}}\n4 - {{36.rssFields}}\n5 - {{35.rssFields}}\n6 - {{1.rssFields}}"
+                            }
+                        ]
+                    }
+                ],
+                "system_instruction": {
+                    "parts": [
+                        {
+                            "text": "You act as a Senior Content Strategist for high-level technical profiles on LinkedIn. Your specialty is identifying the most strategically valuable content within a sea of information.\r\n\r\nYour target audience is a technical professional (data engineer, data scientist, backend developer, data analyst, or AI engineer) working at an \"AI Native\" company. This profile values deep, innovative, and directly applicable content.\r\n\r\nMission:\r\nYou will analyze a provided list of tech news articles. Your sole objective is to identify and select the SINGLE BEST article to publish.\r\n\r\nDecision Process (You must follow it rigorously):\r\n\r\nAnalyze EVERY article in the input list. For each one, evaluate its suitability based on the following scoring criteria (internal scale of 1 to 10):\r\n\r\nRelevance (Weight: 50%): Does it deal with AI, data science, data engineering, backend development, or a disruptive technological breakthrough? Is it directly relevant to the day-to-day work or the future of the target roles?\r\n\r\nDepth and Value (Weight: 30%): Is it a superficial news item or a technical analysis, a tutorial, a major tool release, or an innovative paper? Real value is prioritized over breaking news without substance.\r\n\r\nOriginality and Novelty (Weight: 20%): Is it a fresh perspective or news that hasn't been covered to death? Is it recent?\r\n\r\nDeliberate and Select: Compare the weighted scores of all articles. Choose the article with the highest score. In case of a tie, prioritize the one with the highest \"Depth and Value.\"\r\n\r\nFinal Output:\r\n\r\nOnce the best article is selected, your sole output will be the complete JSON object of THAT article and NOTHING ELSE.\r\n\r\nDo not include any explanation, greeting, or introductory text. Your response must be solely the JSON of the winning article so it can be processed automatically.\r\n\r\nExpected Output (if Article B was the winner):\r\n\r\nJSON\r\n\r\n{\r\n  \"title\": \"Article B Title\",\r\n  \"description\": \"...\",\r\n  \"summary\": \"...\",\r\n  \"url\": \"http://...\",\r\n  \"date\": \"...\"\r\n}"
+                        }
+                    ]
+                },
+                "generationConfig": {
+                    "responseModalities": [
+                        "text"
+                    ],
+                    "thinkingConfig": {
+                        "include_thoughts": false
+                    },
+                    "responseMimeType": "application/json",
+                    "new_responseSchema": [
+                        {
+                            "type": "string",
+                            "property_name": "title",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "description",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "summary",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "url",
+                            "required": true,
+                            "array": false
+                        }
+                    ]
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 390,
+                    "y": -142
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "Gemini Connection Test",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "model": {
+                            "mode": "chose",
+                            "label": "Gemini 2.5 Pro"
+                        },
+                        "contents": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "parts": {
+                                        "mode": "chose",
+                                        "items": [
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "system_instruction": {
+                            "nested": {
+                                "parts": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
+                                }
+                            }
+                        },
+                        "safetySettings": {
+                            "mode": "chose"
+                        },
+                        "generationConfig": {
+                            "nested": {
+                                "stopSequences": {
+                                    "mode": "chose"
+                                },
+                                "responseModalities": {
+                                    "mode": "chose"
+                                },
+                                "thinkingConfig": {
+                                    "nested": {
+                                        "include_thoughts": {
+                                            "mode": "chose"
+                                        }
+                                    }
+                                },
+                                "responseMimeType": {
+                                    "mode": "chose",
+                                    "label": "JSON Output"
+                                },
+                                "new_responseSchema": {
+                                    "mode": "chose",
+                                    "items": [
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "AI Model",
+                        "required": true
+                    },
+                    {
+                        "name": "contents",
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true,
+                        "spec": [
+                            {
+                                "name": "role",
+                                "type": "select",
+                                "label": "Role",
+                                "options": [
+                                    {
+                                        "label": "User",
+                                        "value": "user"
+                                    },
+                                    {
+                                        "label": "Model",
+                                        "value": "model"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "parts",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Message Type",
+                                        "options": [
+                                            {
+                                                "label": "Text",
+                                                "value": "text",
+                                                "nested": [
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "required": false
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "File",
+                                                "value": "file",
+                                                "nested": [
+                                                    {
+                                                        "name": "file_data",
+                                                        "spec": [
+                                                            {
+                                                                "name": "mime_type",
+                                                                "type": "text",
+                                                                "label": "Mime Type",
+                                                                "required": false
+                                                            },
+                                                            {
+                                                                "help": "You get this from the 'Upload a File' module.",
+                                                                "name": "file_uri",
+                                                                "type": "text",
+                                                                "label": "File URI",
+                                                                "required": false
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "File Data",
+                                                        "required": false
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Parts"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "system_instruction",
+                        "type": "collection",
+                        "label": "System Instructions",
+                        "spec": [
+                            {
+                                "name": "parts",
+                                "type": "array",
+                                "label": "Prompts",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "text",
+                                            "type": "text",
+                                            "label": "Value"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Prompt",
+                                    "name": "value"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "safetySettings",
+                        "type": "array",
+                        "label": "Safety Settings",
+                        "spec": [
+                            {
+                                "name": "category",
+                                "type": "select",
+                                "label": "Category",
+                                "options": [
+                                    {
+                                        "label": "Harassment content",
+                                        "value": "HARM_CATEGORY_HARASSMENT"
+                                    },
+                                    {
+                                        "label": "Hate speech and content",
+                                        "value": "HARM_CATEGORY_HATE_SPEECH"
+                                    },
+                                    {
+                                        "label": "Sexually explicit content.",
+                                        "value": "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+                                    },
+                                    {
+                                        "label": "Dangerous content:",
+                                        "value": "HARM_CATEGORY_DANGEROUS_CONTENT"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "threshold",
+                                "type": "select",
+                                "label": "Threshold",
+                                "options": [
+                                    {
+                                        "label": "Block low and above.",
+                                        "value": "BLOCK_LOW_AND_ABOVE"
+                                    },
+                                    {
+                                        "label": "Block medium and above.",
+                                        "value": "BLOCK_MEDIUM_AND_ABOVE"
+                                    },
+                                    {
+                                        "label": "Block only high.",
+                                        "value": "BLOCK_ONLY_HIGH"
+                                    },
+                                    {
+                                        "label": "Block none.",
+                                        "value": "BLOCK_NONE"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "generationConfig",
+                        "type": "collection",
+                        "label": "Generation configurations",
+                        "spec": [
+                            {
+                                "name": "stopSequences",
+                                "type": "array",
+                                "label": "Stop Sequences",
+                                "spec": {
+                                    "type": "text",
+                                    "label": "Stop Sequence",
+                                    "name": "value"
+                                }
+                            },
+                            {
+                                "name": "responseModalities",
+                                "type": "select",
+                                "label": "Response Modalities",
+                                "multiple": true,
+                                "validate": {
+                                    "enum": [
+                                        "text",
+                                        "image"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "maxOutputTokens",
+                                "type": "number",
+                                "label": "Max Output Tokens"
+                            },
+                            {
+                                "name": "temperature",
+                                "type": "number",
+                                "label": "Temperature",
+                                "validate": {
+                                    "max": 1,
+                                    "min": 0
+                                }
+                            },
+                            {
+                                "name": "topP",
+                                "type": "number",
+                                "label": "Top P",
+                                "validate": {
+                                    "max": 1,
+                                    "min": 0
+                                }
+                            },
+                            {
+                                "name": "topK",
+                                "type": "number",
+                                "label": "Top K"
+                            },
+                            {
+                                "name": "thinkingConfig",
+                                "type": "collection",
+                                "label": "Thinking Config",
+                                "spec": [
+                                    {
+                                        "name": "thinkingBudget",
+                                        "type": "number",
+                                        "label": "Thinking Budget"
+                                    },
+                                    {
+                                        "name": "include_thoughts",
+                                        "type": "boolean",
+                                        "label": "Include Thoughts"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "responseMimeType",
+                                "type": "select",
+                                "label": "Response Mime Type"
+                            },
+                            {
+                                "name": "responseSchema",
+                                "type": "any",
+                                "label": "Response Schema (Deprecated)"
+                            },
+                            {
+                                "name": "new_responseSchema",
+                                "type": "array",
+                                "label": "Response Schema",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Value Type",
+                                        "options": [
+                                            {
+                                                "label": "String",
+                                                "value": "string",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=string"
+                                            },
+                                            {
+                                                "label": "Enum",
+                                                "value": "enum",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=enum"
+                                            },
+                                            {
+                                                "label": "Number",
+                                                "value": "number",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=number"
+                                            },
+                                            {
+                                                "label": "Integer",
+                                                "value": "integer",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=integer"
+                                            },
+                                            {
+                                                "label": "Boolean",
+                                                "value": "boolean",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=boolean"
+                                            },
+                                            {
+                                                "label": "Object",
+                                                "value": "object",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=object"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "tools",
+                        "type": "any",
+                        "label": "Tools"
+                    },
+                    {
+                        "name": "tool_config",
+                        "type": "any",
+                        "label": "Tool Config"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 48,
+            "module": "gemini-ai:createACompletionGeminiPro",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 4167830
+            },
+            "mapper": {
+                "model": "gemini-2.5-pro",
+                "contents": [
+                    {
+                        "role": "user",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "text": "{{3.result}}"
+                            }
+                        ]
+                    }
+                ],
+                "system_instruction": {
+                    "parts": [
+                        {
+                            "text": "You act as an expert in LinkedIn Content Writing and Technical Personal Branding. Your audience is data and AI professionals. Your tone is warm, professional, and full of intellectual curiosity. The writing language for the post is ENGLISH.\r\n\r\nMission:\r\nYou will receive the details of a pre-selected tech news article (in JSON format) including a URL from which you can gather more information. Your task is to transform it into a high-quality LinkedIn post and generate a prompt for an accompanying image.\r\n\r\nProfile Context (Tone and Style):\r\n\r\nLanguage: Clear, accessible, yet profound. Avoid unnecessary jargon.\r\n\r\nTone: Professional, but with a warm, human touch. Encourage conversation.\r\n\r\nObjective: To provide value, teach something new, or provoke interesting reflection.\r\n\r\nCreation Instructions:\r\n\r\nCatchy Title: Based on the article, create a short and powerful title for the post.\r\n\r\nPost Content (in ENGLISH):\r\n\r\nWrite a concise and well-structured post.\r\n\r\nStart with a strong hook that captures attention.\r\n\r\nExplain the essence of the article and, most importantly, highlight why it is relevant or useful for a data engineer/scientist or backend developer.\r\n\r\nEnd with an open-ended question or a subtle call to reflection to encourage interaction.\r\n\r\nUse 1 to 3 professional and relevant emojis (e.g., 🚀, 🧠, 💡, 🔍, ⚙️) to enhance readability.\r\n\r\nFormat: NEVER use markdown (bold, italics, etc.). The output must be plain text. The link to the original article will be added externally, do not include it.\r\n\r\nHashtags:\r\n\r\nGenerate between 4 and 6 ultra-relevant hashtags. Mix popular hashtags (e.g., #AI) with more niche ones (e.g., #VectorDatabase).\r\n\r\nImage Prompt:\r\n\r\nCreate a text prompt, in English, for an image generator (like Midjourney or DALL-E).\r\n\r\nThe prompt must generate an informative and aesthetically clean image that illustrates the central concept of the article in a clear, easy-to-understand, and eye-catching way.\r\n\r\nStyle: \"Studio Ghibli inspired art style, charming hand-drawn aesthetic, clear conceptual tech illustration, soft and warm natural lighting, lush and friendly color palette, whimsical and approachable\".\r\n\r\nThe goal is to create a visualization that helps the audience quickly understand the technology or the main idea. Think of a conceptual diagram, a simplified architecture, or a stylized infographic.\r\n\r\nAvoid including people AND UNDER NO CIRCUMSTANCES INCLUDE TEXT. Instead, use elements like nodes, data flows, gears, or interconnected blocks to represent the concept visually. Strive for conceptual clarity over abstract metaphor. Furthermore, UNDER NO CIRCUMSTANCES include images that could be sensitive to any audience; ensure they are friendly, pleasant, AND ABOVE ALL INFORMATIVE AND ALIGNED WITH THE PUBLICATION.\r\n\r\nMandatory Output Format:\r\nYour response must be a single plain text string in JSON format, without code block markers like ```json. The structure must be exactly as follows:\r\n\r\nJSON\r\n\r\n{\r\n  \"title\": \"Optimized LinkedIn title in plain text\",\r\n  \"content\": \"Well-written LinkedIn post in English.\\n\\nThis post must be carefully crafted, following all instructions about tone, emojis and structure.\\n\\nIt should end with a subtle call to action.\",\r\n  \"hashtags\": \"#Tech #AI #DataScience #RelevantHashtag1 #RelevantHashtag2\",\r\n  \"source\": \"Original URL\",\r\n  \"date\": \"Thursday, July 25, 2025 (Must be in this format for readability)\",\r\n  \"image_prompt\": \"Studio Ghibli inspired art style, charming hand-drawn aesthetic, clear conceptual tech illustration of interconnected glowing nodes representing a distributed system, soft and warm natural lighting, lush and friendly color palette, whimsical and approachable, no text, no people --ar 16:9\"\r\n}"
+                        }
+                    ]
+                },
+                "generationConfig": {
+                    "responseModalities": [
+                        "text"
+                    ],
+                    "thinkingConfig": {
+                        "include_thoughts": false
+                    },
+                    "responseMimeType": "application/json",
+                    "new_responseSchema": [
+                        {
+                            "type": "string",
+                            "property_name": "title",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "content",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "hashtags",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "source",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "date",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "type": "string",
+                            "property_name": "image_prompt",
+                            "required": true,
+                            "array": false
+                        }
+                    ]
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 690,
+                    "y": -135
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "Gemini Connection Test",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "model": {
+                            "mode": "chose",
+                            "label": "Gemini 2.5 Pro"
+                        },
+                        "contents": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "parts": {
+                                        "mode": "chose",
+                                        "items": [
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "system_instruction": {
+                            "nested": {
+                                "parts": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
+                                }
+                            }
+                        },
+                        "safetySettings": {
+                            "mode": "chose"
+                        },
+                        "generationConfig": {
+                            "nested": {
+                                "stopSequences": {
+                                    "mode": "chose"
+                                },
+                                "responseModalities": {
+                                    "mode": "chose"
+                                },
+                                "thinkingConfig": {
+                                    "nested": {
+                                        "include_thoughts": {
+                                            "mode": "chose"
+                                        }
+                                    }
+                                },
+                                "responseMimeType": {
+                                    "mode": "chose",
+                                    "label": "JSON Output"
+                                },
+                                "new_responseSchema": {
+                                    "mode": "chose",
+                                    "items": [
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        },
+                                        {
+                                            "type": {
+                                                "mode": "chose",
+                                                "nested": [
+                                                    {
+                                                        "help": null,
+                                                        "name": "property_name",
+                                                        "spec": null,
+                                                        "type": "text",
+                                                        "label": "Property Name",
+                                                        "options": null,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "required",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Required Property?",
+                                                        "options": null,
+                                                        "required": null
+                                                    },
+                                                    {
+                                                        "help": null,
+                                                        "name": "array",
+                                                        "spec": null,
+                                                        "type": "boolean",
+                                                        "label": "Make property an array?",
+                                                        "options": null,
+                                                        "required": null
+                                                    }
+                                                ],
+                                                "label": "String"
+                                            },
+                                            "required": {
+                                                "mode": "chose"
+                                            },
+                                            "array": {
+                                                "mode": "chose"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "AI Model",
+                        "required": true
+                    },
+                    {
+                        "name": "contents",
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true,
+                        "spec": [
+                            {
+                                "name": "role",
+                                "type": "select",
+                                "label": "Role",
+                                "options": [
+                                    {
+                                        "label": "User",
+                                        "value": "user"
+                                    },
+                                    {
+                                        "label": "Model",
+                                        "value": "model"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "parts",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Message Type",
+                                        "options": [
+                                            {
+                                                "label": "Text",
+                                                "value": "text",
+                                                "nested": [
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "required": false
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "File",
+                                                "value": "file",
+                                                "nested": [
+                                                    {
+                                                        "name": "file_data",
+                                                        "spec": [
+                                                            {
+                                                                "name": "mime_type",
+                                                                "type": "text",
+                                                                "label": "Mime Type",
+                                                                "required": false
+                                                            },
+                                                            {
+                                                                "help": "You get this from the 'Upload a File' module.",
+                                                                "name": "file_uri",
+                                                                "type": "text",
+                                                                "label": "File URI",
+                                                                "required": false
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "File Data",
+                                                        "required": false
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Parts"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "system_instruction",
+                        "type": "collection",
+                        "label": "System Instructions",
+                        "spec": [
+                            {
+                                "name": "parts",
+                                "type": "array",
+                                "label": "Prompts",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "text",
+                                            "type": "text",
+                                            "label": "Value"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Prompt",
+                                    "name": "value"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "safetySettings",
+                        "type": "array",
+                        "label": "Safety Settings",
+                        "spec": [
+                            {
+                                "name": "category",
+                                "type": "select",
+                                "label": "Category",
+                                "options": [
+                                    {
+                                        "label": "Harassment content",
+                                        "value": "HARM_CATEGORY_HARASSMENT"
+                                    },
+                                    {
+                                        "label": "Hate speech and content",
+                                        "value": "HARM_CATEGORY_HATE_SPEECH"
+                                    },
+                                    {
+                                        "label": "Sexually explicit content.",
+                                        "value": "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+                                    },
+                                    {
+                                        "label": "Dangerous content:",
+                                        "value": "HARM_CATEGORY_DANGEROUS_CONTENT"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "threshold",
+                                "type": "select",
+                                "label": "Threshold",
+                                "options": [
+                                    {
+                                        "label": "Block low and above.",
+                                        "value": "BLOCK_LOW_AND_ABOVE"
+                                    },
+                                    {
+                                        "label": "Block medium and above.",
+                                        "value": "BLOCK_MEDIUM_AND_ABOVE"
+                                    },
+                                    {
+                                        "label": "Block only high.",
+                                        "value": "BLOCK_ONLY_HIGH"
+                                    },
+                                    {
+                                        "label": "Block none.",
+                                        "value": "BLOCK_NONE"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "generationConfig",
+                        "type": "collection",
+                        "label": "Generation configurations",
+                        "spec": [
+                            {
+                                "name": "stopSequences",
+                                "type": "array",
+                                "label": "Stop Sequences",
+                                "spec": {
+                                    "type": "text",
+                                    "label": "Stop Sequence",
+                                    "name": "value"
+                                }
+                            },
+                            {
+                                "name": "responseModalities",
+                                "type": "select",
+                                "label": "Response Modalities",
+                                "multiple": true,
+                                "validate": {
+                                    "enum": [
+                                        "text",
+                                        "image"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "maxOutputTokens",
+                                "type": "number",
+                                "label": "Max Output Tokens"
+                            },
+                            {
+                                "name": "temperature",
+                                "type": "number",
+                                "label": "Temperature",
+                                "validate": {
+                                    "max": 1,
+                                    "min": 0
+                                }
+                            },
+                            {
+                                "name": "topP",
+                                "type": "number",
+                                "label": "Top P",
+                                "validate": {
+                                    "max": 1,
+                                    "min": 0
+                                }
+                            },
+                            {
+                                "name": "topK",
+                                "type": "number",
+                                "label": "Top K"
+                            },
+                            {
+                                "name": "thinkingConfig",
+                                "type": "collection",
+                                "label": "Thinking Config",
+                                "spec": [
+                                    {
+                                        "name": "thinkingBudget",
+                                        "type": "number",
+                                        "label": "Thinking Budget"
+                                    },
+                                    {
+                                        "name": "include_thoughts",
+                                        "type": "boolean",
+                                        "label": "Include Thoughts"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "responseMimeType",
+                                "type": "select",
+                                "label": "Response Mime Type"
+                            },
+                            {
+                                "name": "responseSchema",
+                                "type": "any",
+                                "label": "Response Schema (Deprecated)"
+                            },
+                            {
+                                "name": "new_responseSchema",
+                                "type": "array",
+                                "label": "Response Schema",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Value Type",
+                                        "options": [
+                                            {
+                                                "label": "String",
+                                                "value": "string",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=string"
+                                            },
+                                            {
+                                                "label": "Enum",
+                                                "value": "enum",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=enum"
+                                            },
+                                            {
+                                                "label": "Number",
+                                                "value": "number",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=number"
+                                            },
+                                            {
+                                                "label": "Integer",
+                                                "value": "integer",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=integer"
+                                            },
+                                            {
+                                                "label": "Boolean",
+                                                "value": "boolean",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=boolean"
+                                            },
+                                            {
+                                                "label": "Object",
+                                                "value": "object",
+                                                "nested": "rpc://gemini-ai/1/createResponseSchema?type=object"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "tools",
+                        "type": "any",
+                        "label": "Tools"
+                    },
+                    {
+                        "name": "tool_config",
+                        "type": "any",
+                        "label": "Tool Config"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 7,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": 136494
+            },
+            "mapper": {
+                "json": "{{48.result}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 980,
+                    "y": -139
+                },
+                "restore": {
+                    "parameters": {
+                        "type": {
+                            "label": "LinkedIn Posts"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "help": "The title of the post",
+                        "name": "title",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": true,
+                        "multiline": false
+                    },
+                    {
+                        "help": "content of the post",
+                        "name": "content",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": true,
+                        "multiline": true
+                    },
+                    {
+                        "help": "hashtags related to the topic of the post",
+                        "name": "hashtags",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": true,
+                        "multiline": false
+                    },
+                    {
+                        "help": "",
+                        "name": "image_prompt",
+                        "type": "text",
+                        "label": null,
+                        "default": "false",
+                        "required": true,
+                        "multiline": false
+                    },
+                    {
+                        "help": "source URL",
+                        "name": "source",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": true,
+                        "multiline": false
+                    },
+                    {
+                        "help": "Human readable date of publish",
+                        "name": "date",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": true,
+                        "multiline": false
+                    }
+                ]
+            }
+        },
+        {
+            "id": 46,
+            "module": "gemini-ai:createAnImage",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 4727698
+            },
+            "mapper": {
+                "model": "imagen-3.0-generate-002",
+                "prompt": "{{7.image_prompt}}",
+                "aspectRatio": "16:9",
+                "personGeneration": "ALLOW_ADULT"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1276,
+                    "y": -145
+                },
+                "restore": {
+                    "expect": {
+                        "model": {
+                            "mode": "chose",
+                            "label": "Imagen 3.0 Generate 002"
+                        },
+                        "aspectRatio": {
+                            "mode": "chose",
+                            "label": "16:9"
+                        },
+                        "personGeneration": {
+                            "mode": "chose",
+                            "label": "Allow Adults"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai-q9zyjp"
+                            },
+                            "label": "PersonalAccountImage"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:gemini-ai-q9zyjp",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "prompt",
+                        "type": "text",
+                        "label": "Image Prompt",
+                        "required": true
+                    },
+                    {
+                        "name": "personGeneration",
+                        "type": "select",
+                        "label": "Person Generation Rules",
+                        "validate": {
+                            "enum": [
+                                "ALLOW_ADULT",
+                                "DONT_ALLOW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "aspectRatio",
+                        "type": "select",
+                        "label": "Aspect Ratio",
+                        "validate": {
+                            "enum": [
+                                "1:1",
+                                "3:4",
+                                "4:3",
+                                "9:16",
+                                "16:9"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "module": "util:FunctionIncrement",
+            "version": 1,
+            "parameters": {
+                "reset": "scenario"
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 1562,
+                    "y": -136
+                },
+                "restore": {
+                    "parameters": {
+                        "reset": {
+                            "label": "Never"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "reset",
+                        "type": "select",
+                        "label": "Reset a value",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "run",
+                                "execution",
+                                "scenario"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 50,
+            "module": "linkedin:ShareImage",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 4168726
+            },
+            "mapper": {
+                "data": "{{46.data}}",
+                "title": "{{7.title}}",
+                "altText": "AI Image that accompanies the post",
+                "content": "🤖 Daily AI Post N° {{14.i}}!\n\n{{7.title}}\n\n{{7.content}}\n\nSource: {{7.source}}\nDate: {{7.date}}\n\nDisclaimer: This post was automatically generated by an AI Agent using curated content from the cited source. It is intended for informational, experimental, and development purposes only.\n\n{{7.hashtags}}",
+                "fileName": "{{46.fileName}}",
+                "visibility": "PUBLIC",
+                "feedDistribution": "MAIN_FEED",
+                "isReshareDisabledByAuthor": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1875,
+                    "y": -136
+                },
+                "restore": {
+                    "expect": {
+                        "visibility": {
+                            "mode": "chose",
+                            "label": "Public"
+                        },
+                        "feedDistribution": {
+                            "mode": "chose",
+                            "label": "Main feed"
+                        },
+                        "isReshareDisabledByAuthor": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "linkedin2"
+                            },
+                            "label": "My LinkedIn connection (Nicolas Cossu)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:linkedin2,linkedin-openid",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "fileName",
+                        "type": "text",
+                        "label": "File name",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "altText",
+                        "type": "text",
+                        "label": "Alt Text"
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Content",
+                        "required": true
+                    },
+                    {
+                        "name": "visibility",
+                        "type": "select",
+                        "label": "Visibility",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "PUBLIC",
+                                "CONNECTIONS",
+                                "LOGGED_IN"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "feedDistribution",
+                        "type": "select",
+                        "label": "Feed Distribution",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "MAIN_FEED",
+                                "NONE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "isReshareDisabledByAuthor",
+                        "type": "boolean",
+                        "label": "Is Reshare Disabled",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 49,
+            "module": "slack:uploadAFile",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 4168250
+            },
+            "mapper": {
+                "data": "{{46.data}}",
+                "title": "{{46.fileName}}",
+                "channel": "C093WD5QQCT",
+                "channels": "public",
+                "fileName": "{{46.fileName}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2132,
+                    "y": -423
+                },
+                "restore": {
+                    "expect": {
+                        "channel": {
+                            "mode": "chose",
+                            "label": "post-history"
+                        },
+                        "channels": {
+                            "label": "Public channel"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "slack2"
+                            },
+                            "label": "Slack connection (testing-5hn4531.slack.com - nicolas.cossu2006)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:slack2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "channels",
+                        "type": "select",
+                        "label": "Channel type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "public",
+                                "private",
+                                "im",
+                                "mpim"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "fileName",
+                        "type": "filename",
+                        "label": "File name",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "thread_ts",
+                        "type": "text",
+                        "label": "Thread ID (timestamp)"
+                    },
+                    {
+                        "name": "initial_comment",
+                        "type": "text",
+                        "label": "Initial comment"
+                    },
+                    {
+                        "name": "channel",
+                        "type": "select",
+                        "label": "Public channel",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "slack:CreateMessage",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 4168250
+            },
+            "mapper": {
+                "text": "Daily Post N°{{14.i}} Created Successfully!\n\n🤖 Daily AI Post N° {{14.i}}!\n\n{{7.title}}\n\n{{7.content}}\n\nSource: {{7.source}}\nDate: {{7.date}}\n\n {{7.hashtags}}",
+                "parse": false,
+                "mrkdwn": true,
+                "channel": "C093WD5QQCT",
+                "channelType": "public",
+                "channelWType": "list"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2122,
+                    "y": -123
+                },
+                "restore": {
+                    "expect": {
+                        "parse": {
+                            "mode": "chose"
+                        },
+                        "mrkdwn": {
+                            "mode": "chose"
+                        },
+                        "channel": {
+                            "mode": "chose",
+                            "label": "post-history"
+                        },
+                        "link_names": {
+                            "mode": "chose"
+                        },
+                        "channelType": {
+                            "label": "Public channel"
+                        },
+                        "channelWType": {
+                            "label": "Select from the list"
+                        },
+                        "unfurl_links": {
+                            "mode": "chose"
+                        },
+                        "unfurl_media": {
+                            "mode": "chose"
+                        },
+                        "reply_broadcast": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "slack2"
+                            },
+                            "label": "Slack connection (testing-5hn4531.slack.com - nicolas.cossu2006)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:slack2,slack3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "channelWType",
+                        "type": "select",
+                        "label": "Enter a channel ID or name",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "manualy",
+                                "list"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "name": "blocks",
+                        "type": "text",
+                        "label": "Blocks"
+                    },
+                    {
+                        "name": "thread_ts",
+                        "type": "text",
+                        "label": "Thread message ID (time stamp)"
+                    },
+                    {
+                        "name": "reply_broadcast",
+                        "type": "boolean",
+                        "label": "Reply broadcast"
+                    },
+                    {
+                        "name": "link_names",
+                        "type": "boolean",
+                        "label": "Link names"
+                    },
+                    {
+                        "name": "parse",
+                        "type": "boolean",
+                        "label": "Parse message text"
+                    },
+                    {
+                        "name": "mrkdwn",
+                        "type": "boolean",
+                        "label": "Use markdown"
+                    },
+                    {
+                        "name": "unfurl_links",
+                        "type": "boolean",
+                        "label": "Unfurl primarily text-based content"
+                    },
+                    {
+                        "name": "unfurl_media",
+                        "type": "boolean",
+                        "label": "Unfurl media content"
+                    },
+                    {
+                        "name": "icon_emoji",
+                        "type": "text",
+                        "label": "Icon emoji"
+                    },
+                    {
+                        "name": "icon_url",
+                        "type": "url",
+                        "label": "Icon url"
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "channelType",
+                        "type": "select",
+                        "label": "Channel type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "public",
+                                "private",
+                                "im",
+                                "mpim"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "channel",
+                        "type": "select",
+                        "label": "Public channel",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 16,
+            "module": "inout-personal-whatsapp:SendWhatsapp",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 4171171
+            },
+            "mapper": {
+                "type": "alarm_notification",
+                "message": "Daily Post N°{{14.i}} Created Successfully!\n---------------------------------\n {{7.title}} "
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2114,
+                    "y": 169
+                },
+                "restore": {
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "📢 Message"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "inout-personal-whatsapp2"
+                            },
+                            "label": "My InOut WhatsApp Number connection (542216915742)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:inout-personal-whatsapp2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Message to Send",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Message Type",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
